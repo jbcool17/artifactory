@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v5.0.0
-      
+
     - name: Get dockerfile data
       id: dockerfile_data
       env:
@@ -42,5 +42,5 @@ jobs:
     steps:
     - name: Run
       run: |
-        echo "Building image for Dockerfile at path: ${{ matrix.dockerfile }}"
+        echo "Building image for Dockerfile at path: ${{ toJson(matrix.dockerfile) }}"
         # Add your image build commands here
