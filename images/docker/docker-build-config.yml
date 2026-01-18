@@ -1,2 +1,2 @@
 APPLICATION_NAME: docker
-GCR_FOLDER: jbcool17/actions
+PRIVATE_REGISTRY_PATH: jbcool17/actions
