@@ -19,6 +19,10 @@ on:
     schedule:
       # 11 AM EST every Monday
       - cron: '0 15 * * 1'
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
