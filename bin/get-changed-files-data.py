@@ -95,11 +95,21 @@ if __name__ == '__main__':
     # Process changed files to find Dockerfiles and load their configs
     for file in changed_files:
         print(f'Processing changed file: {file}')
+        
         # Check if the changed file is a Dockerfile
         if 'Dockerfile' in file and SCRIPT_MODE == 'dockerfile_changes':
             print(f'Found Dockerfile change: {file}')
             path = '/'.join(file.split('/')[:-1])
             output_data.append(setup_dockerfile_data(path))
+
+        # Check if the changed file is a Helm Chart definition
+        if "Chart.yml" in file and SCRIPT_MODE == 'helm_chart_changes':
+            print(f'Found Helm Chart change: {file}')
+            path = '/'.join(file.split('/')[:-1])
+            with open(file, 'r') as f:
+                chart_data = safe_load(f) or {}
+            chart_data['CHART_PATH'] = f'./{path}'
+            output_data.append(chart_data)
 
     print(f'Output data: {json.dumps(output_data, indent=2)}')
 

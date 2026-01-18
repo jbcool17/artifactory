@@ -1,0 +1,46 @@
+name: helm chart push
+
+on:
+  push:
+    branches: [main]
+    paths:
+    - 'helm-charts/**'
+  workflow_dispatch:
+    inputs:
+      dockerfile_path:
+          description: trigger a push (helm-charts/chart-specs/actions_gha-runner-scale-set-controller/Chart.yml)
+          default: null
+
+jobs:
+  get_changed_files:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.helm_chart_data.outputs.matrix }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6.0.1
+
+    - name: Get helm chart data
+      id: helm_chart_data
+      env:
+        PY_SCRIPT_MODE: "helm_chart_changes"
+        GH_TOKEN: ${{ github.token }}
+      run: python3 ./bin/get-changed-files-data.py
+
+    - name: Test Output
+      run: |
+        echo ${{ toJson(steps.helm_chart_data.outputs.matrix) }}  
+
+  image_build:
+    needs: get_changed_files
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        helm_chart: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}  
+    runs-on: ubuntu-latest
+    steps:
+    - name: helm chart push
+      run: |
+        echo "Helm Chart: ${{ toJson(matrix.helm_chart) }}"
+        # get and push helm chart to your private registry
