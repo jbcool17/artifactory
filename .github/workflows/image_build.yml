@@ -40,7 +40,7 @@ jobs:
         dockerfile: ${{ fromJson(needs.get_changed_files.outputs.matrix) }}  
     runs-on: ubuntu-latest
     steps:
-    - name: Run
+    - name: build image
       run: |
         echo "Building image for Dockerfile at path: ${{ toJson(matrix.dockerfile) }}"
         # Add your image build commands here

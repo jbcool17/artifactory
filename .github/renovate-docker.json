@@ -1,0 +1,44 @@
+{
+    "branchPrefix": "renovate/",
+    "username": "jbcool17",
+    "onboarding": false,
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 0,
+    "onboardingConfig": {
+        "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+    },
+    "requireConfig": "optional",
+    "recreateWhen": "always",
+    "repositoryCache": "reset",
+    "pruneStaleBranches": false,
+    "platform": "github",
+    "vulnerabilityAlerts": {
+        "enabled": false
+    },
+    "repositories": [
+        "jbcool17/artifactory"
+    ],
+    "includePaths": [
+        "images/**"
+    ],
+    "ignorePaths": [],
+    "enabledManagers": [
+        "dockerfile"
+    ],
+    "packageRules": [
+        {
+            "description": "docker",
+            "matchManagers": [
+                "dockerfile"
+            ],
+            "dependencyDashboardApproval": false,
+            "minimumReleaseAge": "0",
+            "addLabels": [
+                "docker",
+                "renovate"
+            ],
+            "groupName": "Docker Image Updates Batch",
+            "groupSlug": "docker-image-updates-batch"
+        }
+    ]
+}
