@@ -1,1 +1,1 @@
-FROM ghcr.io/actions/gha-runner-scale-set-controller:0.10.0
+FROM ghcr.io/actions/gha-runner-scale-set-controller:0.13.1
