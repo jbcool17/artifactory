@@ -25,6 +25,7 @@ permissions:
   issues: write
   pull-requests: write
   statuses: read
+  administration: read
 
 jobs:
   renovate:
