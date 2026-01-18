@@ -20,6 +20,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v5.0.0
 
+    - name: Test
+      run: gh repo view --json name
+
     - name: Get dockerfile data
       id: dockerfile_data
       env:
