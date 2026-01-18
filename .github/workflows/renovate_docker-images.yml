@@ -21,7 +21,7 @@ on:
       # - cron: '0 15 * * 1'
 
 permissions:
-  contents: write
+  contents: read
   issues: write
   pull-requests: write
   statuses: read
@@ -39,6 +39,7 @@ jobs:
       env:
         LOG_LEVEL: ${{ inputs.LOG_LEVEL }}
         RENOVATE_DRY_RUN: ${{ inputs.RENOVATE_DRY_RUN }}
+        RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
       with:
         renovate-version: 41.123.0
         configurationFile: .github/renovate-docker.json
