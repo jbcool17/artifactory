@@ -1,1 +1,1 @@
-FROM docker:1.5.0-dind
+FROM docker:29.1.5-dind
