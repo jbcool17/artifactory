@@ -16,9 +16,9 @@ on:
             - extract
             - lookup
             - full
-    schedule:
+    # schedule:
       # 11 AM EST every Monday
-      - cron: '0 15 * * 1'
+      # - cron: '0 15 * * 1'
 
 permissions:
   contents: read
