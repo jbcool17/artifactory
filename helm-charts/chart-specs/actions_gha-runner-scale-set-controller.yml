@@ -1,0 +1,15 @@
+apiVersion: v2
+name: ext-charts
+version: 0.0.0
+appVersion: 0.0.0
+description: Third Party Helm Charts
+type: application
+dependencies:
+- name: gha-runner-scale-set-controller
+  repository: oci://ghcr.io/actions/actions-runner-controller-charts
+  version: 0.10.0
+extChartSpec:
+  ociBased: true
+  releaseNotes: https://github.com/actions/actions-runner-controller/releases
+  refs:
+  - https://github.com/actions/actions-runner-controller
