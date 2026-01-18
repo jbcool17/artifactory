@@ -1,6 +1,6 @@
 {
     "branchPrefix": "renovate/",
-    "username": "jbcool17",
+    "username": "github-actions[bot]",
     "onboarding": false,
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
