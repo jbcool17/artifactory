@@ -19,14 +19,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v5.0.0
-
-    - name: Test
-      run: gh repo view --json name
-
+      
     - name: Get dockerfile data
       id: dockerfile_data
       env:
         PY_SCRIPT_MODE: "dockerfile_changes"
+        GH_TOKEN: ${{ github.token }}
       run: python3 ./bin/get-changed-files-data.py
 
     - name: Test Output
