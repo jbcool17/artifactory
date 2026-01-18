@@ -31,7 +31,7 @@ jobs:
       run: |
         echo ${{ toJson(steps.helm_chart_data.outputs.matrix) }}  
 
-  image_build:
+  helm_chart_push:
     needs: get_changed_files
     strategy:
       fail-fast: false
