@@ -18,7 +18,7 @@ jobs:
       matrix: ${{ steps.helm_chart_data.outputs.matrix }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v6.0.1
+      uses: actions/checkout@v6.1.0
 
     - name: Get helm chart data
       id: helm_chart_data
