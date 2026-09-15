@@ -40,6 +40,6 @@ jobs:
         RENOVATE_DRY_RUN: ${{ inputs.RENOVATE_DRY_RUN }}
         RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
       with:
-        renovate-version: 41.123.0
+        renovate-version: 41.173.1
         configurationFile: .github/renovate-docker.json
         token: '${{ github.token }}'
